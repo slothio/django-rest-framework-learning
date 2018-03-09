@@ -17,8 +17,10 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from apps.QuickStart import views
+from apps.GenericViewsExample.views import UserList
 
 urlpatterns = [
+    url(r'^generic', UserList.as_view()),
     url(r'^user', views.ListUsers.as_view()),
     url(r'api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^admin/', admin.site.urls),
